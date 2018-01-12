@@ -24,7 +24,7 @@ class PhonebuzzController < ApplicationController
           @call = @client.calls.create(
             url: Rails.application.secrets.application_url + '/phonebuzz/call',
             to: params[:phone_num],
-            from: '+15102414092'
+            from: Rails.application.secrets.twilio_phone_number
           )
           puts 'calling'
         end
