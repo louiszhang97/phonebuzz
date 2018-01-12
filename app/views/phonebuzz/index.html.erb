@@ -1,0 +1,18 @@
+<h1>Welcome to Phonebuzz!</h1>
+<p>This is my coding challenge for LendUp</p>
+<%= form_tag("/phonebuzz/dial", method: "post") do %>
+  <% if flash[:alert] %>
+    <div class="alert" style="color:Tomato;"> <%= flash[:alert] %></div>
+  <% end %>
+
+  <%= label_tag(:phone_num, "Enter a phone number to play Phonebuzz with:") %>
+  <%= text_field_tag(:phone_num) %>
+  <br>
+  <%= label_tag(:call, "Phonebuzz will call you in ") %>
+  <%= text_field_tag(:delay_min, 0, size: 3) %>
+  <%= label_tag(:call, "minutes") %>
+  <%= text_field_tag(:delay_seconds, 0, size: 2) %>
+  <%= label_tag(:call, "seconds.") %>
+  <%= submit_tag("Dial") %>
+
+<% end %>
