@@ -17,11 +17,12 @@ class PhonebuzzController < ApplicationController
         scheduler = Rufus::Scheduler.new
         delay_in_seconds = (delay_min * 60 + delay_seconds).to_s + 's'
         puts delay_in_seconds + ' delay'
-        
+        flash[:success] = 'Phonebuzz will call you ' + delay_in_seconds + ' from ' + Time.now.to_formatted_s(:db)
+
         scheduler.in delay_in_seconds do
           @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_account_auth_token)
           @call = @client.calls.create(
-            url: request.original_url.first(request.original_url.length - 4) + 'call',
+            url: Rails.application.secrets.application_url + '/phonebuzz/call',
             to: params[:phone_num],
             from: '+15102414092'
           )

@@ -4,6 +4,9 @@
   <% if flash[:alert] %>
     <div class="alert" style="color:Tomato;"> <%= flash[:alert] %></div>
   <% end %>
+  <% if flash[:success] %>
+    <div class="alert" style="color:Green;"> <%= flash[:success] %></div>
+  <% end %>
 
   <%= label_tag(:phone_num, "Enter a phone number to play Phonebuzz with:") %>
   <%= text_field_tag(:phone_num) %>
