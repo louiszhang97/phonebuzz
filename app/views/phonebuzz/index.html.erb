@@ -8,7 +8,7 @@
     <div class="alert" style="color:Green;"> <%= flash[:success] %></div>
   <% end %>
 
-  <%= label_tag(:phone_num, "Enter a phone number to play Phonebuzz with:") %>
+  <%= label_tag(:phone_num, "Enter a 10-digit phone number to play Phonebuzz with:") %>
   <%= text_field_tag(:phone_num) %>
   <br>
   <%= label_tag(:call, "Phonebuzz will call you in ") %>
@@ -19,3 +19,24 @@
   <%= submit_tag("Dial") %>
 
 <% end %>
+<h2> Call Log </h2>
+<table style="width:50%">
+  <tr>
+    <th>Date</th>
+    <th>Direction</th>
+    <th>Phone number</th>
+    <th>Delay (in seconds)</th>
+    <th>Number entered </th>
+    <th> Replay Call </th>
+  </tr>
+  <% @log_entries.each do |entry| %>
+      <tr>
+        <td><%= entry.date %></td>
+        <td><%= entry.direction %></td>
+        <td><%= entry.phone_num %></td>
+        <td><%= entry.delay %></td>
+        <td><%= entry.number %></td>
+        <td> <%= button_to "Replay", action: "replay", log_id: entry.id %> </td> 
+      </tr>
+  <% end %>
+</table>
