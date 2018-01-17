@@ -31,12 +31,12 @@
   </tr>
   <% @log_entries.each do |entry| %>
       <tr>
-        <td><%= entry.date %></td>
-        <td><%= entry.direction %></td>
-        <td><%= entry.phone_num %></td>
-        <td><%= entry.delay %></td>
-        <td><%= entry.number %></td>
-        <td> <%= button_to "Replay", action: "replay", log_id: entry.id %> </td> 
+        <td align="center"><%= entry.date %></td>
+        <td align="center"><%= entry.direction %></td>
+        <td align="center"><%= entry.phone_num %></td>
+        <td align="center"><%= entry.delay %></td>
+        <td align="center"><%= entry.number %></td>
+        <td align="center"> <%= button_to "Replay", action: "replay", log_id: entry.id %> </td> 
       </tr>
   <% end %>
 </table>
