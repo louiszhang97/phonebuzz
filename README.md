@@ -21,3 +21,5 @@ ngrok http 3000
 ```
 5. Copy the forwarding link to 'application_url' in config/secrets.yml and your Twilio phone number's programmable voice request URL in the Twilio console. The request type should be HTTP POST.
 6. Enter the forwarding link in your application's browser.
+
+Checkout my live server at: https://lit-lake-52226.herokuapp.com/
